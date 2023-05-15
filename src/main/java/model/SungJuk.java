@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
@@ -16,6 +17,7 @@ public class SungJuk {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int sjno;
 
+    @Column(length = 10, nullable = false)
     private String name;
 
     private int kor;
@@ -24,10 +26,13 @@ public class SungJuk {
 
     private int mat;
 
+    @Column(nullable = true)
     private int tot;
 
-    private double avg;
+    @Column(nullable = true, precision = 5, scale = 1)
+    private BigDecimal avg;
 
+    @Column(length = 1, nullable = true)
     private String grd;
 
     private Date regdate;
