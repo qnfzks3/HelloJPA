@@ -78,6 +78,11 @@ public class HelloJPA04 {
 
             
             //직책 수 조회1
+            cb= em.getCriteriaBuilder();
+            query = cb.createQuery(Employees.class);
+            e=query.from(Employees.class);      // 만약 이렇게 3줄(초기화 작업) 없다면 초기화안되고 위에 지시한 SELECT 문 유지되서 출력한다.
+                                                // 여기 없이하면 위에 연봉 2만이상인도 포함되어버린다.
+
             Expression cntJob = cb.count(e.get("jobid"));
             cq=query.select(cntJob);
             List<Employees> cnt = em.createQuery(cq).getResultList();
