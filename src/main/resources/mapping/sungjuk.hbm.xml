@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping SYSTEM
+        "http://www.hibernate.org/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="model.SungJuk" table="sungjuk">
+        <id name="sjno" type="long" column="sjno">
+            <generator class="identity"></generator>
+        </id>
+
+        <property name="name" column="name" type="string"/>
+        <property name="kor" column="kor" type="int"/>
+        <property name="eng" column="eng" type="int"/>
+        <property name="mat" column="mat" type="int"/>
+        <property name="tot" column="tot" type="int"/>
+        <property name="avg" column="avg" type="double"/>
+        <property name="grd" column="grd" type="string"/>
+        <property name="regdate" column="regdate" type="date"/>
+    </class>
+
+</hibernate-mapping>
